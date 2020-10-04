@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Logout</title>
+	<meta http-equiv="Content-Type" content="charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- Login Page CSS -->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+	<!-- Login Page -->
+	<div style="display: none; direction: ltr; text-align: left;" id="logoutPage" class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+				<form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-32">
+						Account Logout
+					</span>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="logout">
+							Logout
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyCSavrZTK9jWXLYmIC3ahYuBFm-FdSPkkc",
+			authDomain: "manpower-598c9.firebaseapp.com",
+			databaseURL: "https://manpower-598c9.firebaseio.com",
+			projectId: "manpower-598c9",
+			storageBucket: "manpower-598c9.appspot.com",
+			messagingSenderId: "496181078375"
+		}
+		firebase.initializeApp(config)
+		// Initialize Cloud Firestore through Firebase
+		var db = firebase.firestore()
+		// Disable deprecated features
+		db.settings({
+			timestampsInSnapshots: true
+		})
+
+		$('#logout').click(function (e) {
+			e.preventDefault()
+			firebase.auth().signOut().then(function () {
+				// Sign-out successful
+			}).catch(function (error) {
+				// An error happened
+				console.log(error)
+				alert(error)
+			});
+        })
+        
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+				// User is signed in
+				$('#logoutPage').show()
+			}
+			else {
+				location.href = location.href.replace('logout.html', 'login.html')
+			}
+		})
+		
+	</script>
+</body>
+
+</html>
