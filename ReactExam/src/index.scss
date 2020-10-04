@@ -1,0 +1,21 @@
+// Setup
+@import "./styles/setup/variables";
+@import "./styles/setup/mixins";
+@import "./styles/setup/functions";
+
+
+//General
+@import "./styles/fonts";
+@import "./styles/reset";
+@import "./styles/base";
+@import "./styles/helpers";
+
+// Compenents
+@import "./styles/cmps/Aside";
+@import "./styles/cmps/Radar";
+@import "./styles/cmps/Location";
+@import "./styles/cmps/MainSection";
+@import "./styles/cmps/Footer";
+
+// App
+@import "./styles/App"

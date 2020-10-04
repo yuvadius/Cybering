@@ -1,0 +1,14 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    background-color: $clr-bgc;
+    padding: 10px 5px;
+    .first-row {
+        display: flex;
+        flex-direction: row;
+
+        @include for-normal-layout {
+            flex-direction: column;
+        }
+    }
+}

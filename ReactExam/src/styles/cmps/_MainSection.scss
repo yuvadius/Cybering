@@ -1,0 +1,113 @@
+.main-section {
+    width: 66%;
+    border: 1px solid $clr-border;
+    padding: rem(5px);
+
+
+    @include for-normal-layout {
+        flex-direction: column;
+        width: auto;
+    }
+
+    .header-wrapper {
+        justify-content: flex-end;
+        margin-bottom: rem(15px);
+
+        @include for-normal-layout {
+            flex-direction: column;
+
+        }
+
+        .sub-header-wrapper {
+            margin-right: rem(5px);
+
+            h2 {
+                font-size: 1rem;
+                font-weight: bold;
+                margin-right: rem(5px);
+                @include for-normal-layout {
+                    font-size: 0.8rem;
+                }
+            }
+            img {
+                height: 1rem;
+                width: auto;
+                position: relative;
+                top: 2px;
+            }
+            .nums-wrapper {
+                border-top: 1px solid $clr-border;
+                display: flex;
+                span {
+                    font-size: rem(8px);
+                }
+            }
+        }
+
+        .map-interiactive-wrapper {
+            display: inline-table;
+            border: 1px solid $clr-border;
+            border-radius: 5px 80px;
+            padding: rem(3px) rem(20px);
+
+            h3:first-child {
+                color: $clr-pale-blue;
+            }
+            h3 {
+                color: $clr-dark-blue;
+                font-size: 0.75rem;
+                text-align: center;
+                @include for-normal-layout {
+                    font-size: 0.6rem;
+                }
+            }
+        }
+    }
+
+    .main-content {
+        display: flex;
+
+        .battery {
+            width: 25%;
+        }
+
+        .world {
+            width: 50%;
+            margin: 0 15px;
+        }
+
+        .details-wrapper {
+            display: flex;
+            width: 25%;
+
+            @include for-normal-layout {
+                justify-content: space-around;
+            }
+            
+            .detail {
+                h3 {
+                    font-size: 0.75rem;
+                }
+                p {
+                    font-size: rem(8px);
+                    color: $clr-med-blue;
+                    @include for-narrow-layout {
+                        font-size: rem(6.4px);
+                    }
+                }
+            }
+
+            .detail-big {
+                font-size: rem(10px);
+                color: $clr-light-blue;
+                border-top: 1px dotted $clr-light-blue;
+                border-bottom: 1px dotted $clr-light-blue;
+                padding: 10px 0;
+
+                @include for-narrow-layout {
+                    font-size: rem(8px);
+                }
+            }
+        }
+    }
+}
